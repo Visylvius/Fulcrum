@@ -79,3 +79,23 @@ function indexOf(collection, value, fromIndex) {
   });
   return result;
 }
+
+Object.prototype.getKey = function(value){
+  for(var key in this) {
+     if(this[key] == value) {
+      return key;
+     }
+  }
+ return null;
+};
+
+function defaults(collection, object) {
+  each(object, function(element) {
+    var key = collection.getKey(element);
+    if (key !== null) {
+
+      collection[key] = object[element];
+    }
+  });
+  return collection;
+}
