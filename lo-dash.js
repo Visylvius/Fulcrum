@@ -99,3 +99,11 @@ function defaults(collection, object) {
   });
   return collection;
 }
+
+function first(array, n) {
+  return n === undefined ? array[0] : array.slice(0, n);
+}
+
+function last(array, n) {
+  return n === undefined ? array[array.length - 1] : array.slice(n > array.length ? 0 : array.length - n);
+}
